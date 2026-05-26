@@ -1,0 +1,183 @@
+{
+  "benchmark_id": "residual-100-v1",
+  "created_date": "2026-05-25",
+  "field_schema": {
+    "answer": "null; hidden/unknown for this challenge set",
+    "equation1": "source equation, using * as the binary operation",
+    "equation2": "target equation, using * as the binary operation",
+    "expected_verdict": "null; a participant must produce a true or false Lean-verifiable certificate",
+    "pair_index": "deterministic ordered-pair index from the local Stage 2 order5 pair space",
+    "shape_bucket": "coarse source_shape -> target_shape bucket used only for sampling diagnostics",
+    "stratum": "order4/order5 source-target size stratum"
+  },
+  "file_hashes": {
+    "problems_jsonl_sha256": "f2563e2d74b75a0ed3cd248b7a2f9bea3ae8069c172913209106d570e4104101"
+  },
+  "files": {
+    "manifest_json": "data/residual-100-v1/manifest.json",
+    "problems_jsonl": "data/residual-100-v1/problems.jsonl"
+  },
+  "notes": [
+    "This is an unofficial public challenge set, not an official leaderboard split.",
+    "The 100 problems are not a uniform estimate of the full residual universe; they are a reproducible stratified challenge sample from a 207-row residual source pool.",
+    "No official test_locked rows, judge backend URLs, model attempts, or judge outcomes are included."
+  ],
+  "public_scope": {
+    "answer_labels_available": false,
+    "contains_judge_results": false,
+    "contains_model_outputs": false,
+    "contains_private_judge_backend": false,
+    "contains_test_locked": false
+  },
+  "sample_count": 100,
+  "schema_version": 1,
+  "selected_summary": {
+    "max_rows_per_shape_bucket": 2,
+    "selection_notes_by_stratum": [
+      {
+        "selected_count": 6,
+        "source_pool_count": 13,
+        "stratum": "order4_source_to_order5_target",
+        "unique_shape_buckets_selected": 6
+      },
+      {
+        "selected_count": 7,
+        "source_pool_count": 14,
+        "stratum": "order5_source_to_order4_target",
+        "unique_shape_buckets_selected": 7
+      },
+      {
+        "selected_count": 87,
+        "source_pool_count": 180,
+        "stratum": "order5_source_to_order5_target",
+        "unique_shape_buckets_selected": 87
+      }
+    ],
+    "stratum_counts": {
+      "order4_source_to_order5_target": 6,
+      "order5_source_to_order4_target": 7,
+      "order5_source_to_order5_target": 87
+    },
+    "top_source_shapes": [
+      {
+        "count": 14,
+        "source_shape": "roots=mul>mul|d=1>3|vc=4|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 10,
+        "source_shape": "roots=mul>mul|d=1>4|vc=4|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 8,
+        "source_shape": "roots=var>mul|d=0>5|vc=3|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 8,
+        "source_shape": "roots=mul>mul|d=1>4|vc=3|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 7,
+        "source_shape": "roots=var>mul|d=0>5|vc=4|lm=1|rm=0|vs=0"
+      },
+      {
+        "count": 6,
+        "source_shape": "roots=mul>mul|d=1>3|vc=3|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 6,
+        "source_shape": "roots=var>mul|d=0>4|vc=3|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 4,
+        "source_shape": "roots=var>mul|d=0>4|vc=4|lm=1|rm=0|vs=0"
+      },
+      {
+        "count": 3,
+        "source_shape": "roots=var>mul|d=0>4|vc=3|lm=1|rm=0|vs=0"
+      },
+      {
+        "count": 3,
+        "source_shape": "roots=var>mul|d=0>5|vc=5|lm=0|rm=1|vs=0"
+      }
+    ],
+    "top_target_shapes": [
+      {
+        "count": 5,
+        "target_shape": "roots=mul>mul|d=1>3|vc=4|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 4,
+        "target_shape": "roots=var>mul|d=0>4|vc=3|lm=1|rm=1|vs=0"
+      },
+      {
+        "count": 4,
+        "target_shape": "roots=mul>mul|d=1>4|vc=4|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 3,
+        "target_shape": "roots=var>mul|d=0>4|vc=3|lm=1|rm=0|vs=0"
+      },
+      {
+        "count": 3,
+        "target_shape": "roots=mul>mul|d=1>4|vc=3|lm=1|rm=0|vs=0"
+      },
+      {
+        "count": 3,
+        "target_shape": "roots=var>mul|d=0>4|vc=4|lm=1|rm=0|vs=0"
+      },
+      {
+        "count": 3,
+        "target_shape": "roots=mul>mul|d=1>4|vc=5|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 3,
+        "target_shape": "roots=mul>mul|d=2>3|vc=3|lm=0|rm=1|vs=0"
+      },
+      {
+        "count": 2,
+        "target_shape": "roots=mul>mul|d=1>4|vc=3|lm=0|rm=1|vs=0"
+      },
+      {
+        "count": 2,
+        "target_shape": "roots=mul>mul|d=1>3|vc=2|lm=1|rm=0|vs=0"
+      }
+    ],
+    "unique_pair_count": 100,
+    "unique_shape_bucket_count": 98,
+    "unique_source_shape_count": 34,
+    "unique_target_shape_count": 62
+  },
+  "selection_method": "largest-remainder proportional quotas by order stratum, then deterministic round-robin over shape_bucket groups for diversity",
+  "selection_seed": 20260525,
+  "source": {
+    "coverage_summary": "data/processed/order5_strategy_registry/coverage_summary.json",
+    "equation_file": "external/equational-theories-lean-stage2/examples/problems/eq_size5.txt",
+    "source_pool_sha256": "d56e2c6950f5c7d138d36d626a0e4d5c782609e90258a432270ee26924887920",
+    "source_pool_stem": "current_residual_public_pool_2000_seed20260525",
+    "source_repository": "Math-Distill-Stage2 local workspace",
+    "source_summary_sha256": "08ee486c90d0acc99978cfe1649616a91e101bf58fa2c30eb110a8f81e340b61"
+  },
+  "source_pool_summary": {
+    "coverage_used": {
+      "conflict_count": 0,
+      "deterministic_false_covered": 2369622194,
+      "deterministic_true_covered": 1369895240,
+      "raw_false_union_covered": 2369622194,
+      "raw_true_union_covered": 1369895240,
+      "total_pairs": 3915693200,
+      "unresolved_estimate": 176175766
+    },
+    "current_residual_sample_count": 207,
+    "false_uncovered_estimate": 1546071006,
+    "false_uncovered_sample_count": 2000,
+    "retained_after_true_filter_rate": 0.1035,
+    "source_pool_stratum_counts": {
+      "order4_source_to_order5_target": 13,
+      "order5_source_to_order4_target": 14,
+      "order5_source_to_order5_target": 180
+    },
+    "true_filter_mode": "strategy_function",
+    "unresolved_estimate": 176175766
+  },
+  "title": "Math Distill Stage 2 Residual-100 v1"
+}
