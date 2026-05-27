@@ -4,6 +4,12 @@
 
 英文主版本：[README.md](README.md)
 
+## Codex 进展
+
+下图展示了 Codex 使用 `stage2-proofbench-solver` skill workflow 攻击 `residual-100-v1` 时，随着经过小时数增长，累计首次被 judge accepted 的 certificate 数量。这里每一题只按第一次 accepted 计数，重复 re-verification 不重复累计。
+
+![Codex accepted progress](docs/assets/codex_accepted_progress.svg)
+
 ## 比赛背景
 
 这个数据集来自 [SAIR Mathematics Distillation Challenge: Equational Theories Stage 2](https://competition.sair.foundation/competitions/mathematics-distillation-challenge-equational-theories-stage2/evaluation-setup) 的比赛任务语境。官方 Stage 2 仓库是 [SAIRcompetition/equational-theories-lean-stage2](https://github.com/SAIRcompetition/equational-theories-lean-stage2)。

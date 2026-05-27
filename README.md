@@ -4,6 +4,12 @@ Unofficial residual Lean certificate benchmark for solver, LLM, and skill-workfl
 
 Chinese version: [README.zh-CN.md](README.zh-CN.md)
 
+## Codex Progress
+
+The following chart shows cumulative first accepted certificates over elapsed hours for `residual-100-v1`, using Codex with the `stage2-proofbench-solver` skill workflow. It counts only certificates accepted by the official-compatible Lean 4 judge/verifier, with duplicate re-verifications counted once by problem id.
+
+![Codex accepted progress](docs/assets/codex_accepted_progress.svg)
+
 ## Competition Context
 
 This dataset is derived from the competition setting of the [SAIR Mathematics Distillation Challenge: Equational Theories Stage 2](https://competition.sair.foundation/competitions/mathematics-distillation-challenge-equational-theories-stage2/evaluation-setup). The official Stage 2 repository is [SAIRcompetition/equational-theories-lean-stage2](https://github.com/SAIRcompetition/equational-theories-lean-stage2).
@@ -81,14 +87,6 @@ Recommended report fields:
 - `accepted_rate`: `accepted / 100`.
 - `true_accepted` / `false_accepted`: accepted counts by certificate verdict, if available.
 - `reproducibility_notes`: model, date, prompt, solver code, skill workflow, and toolchain versions.
-
-## Current Accepted Snapshot
-
-The following is a current working snapshot for `residual-100-v1`. It reports only certificates accepted by the official-compatible Lean 4 judge/verifier.
-
-| date | workflow | attempted | accepted | accepted rate | true accepted | false accepted | notes |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| 2026-05-26 | Codex with `stage2-proofbench-solver` skill workflow | 100 | 21 | 21.0% | 21 | 0 | Accepted certificates recover labels for 21 rows; raw attempts and judge logs are kept out of the committed dataset. |
 
 ## Notes
 

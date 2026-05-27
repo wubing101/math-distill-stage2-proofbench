@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-label="Codex accepted count over elapsed hours">
+<rect width="100%" height="100%" fill="#fbfbf8"/>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;fill:#252525}.small{font-size:16px;fill:#565656}.tick{font-size:14px;fill:#606060}.title{font-size:30px;font-weight:700}.subtitle{font-size:16px;fill:#555}.axis{stroke:#222;stroke-width:2}.grid{stroke:#deded8;stroke-width:1}.target{stroke:#a35b00;stroke-width:2;stroke-dasharray:8 8}.line{fill:none;stroke:#166a72;stroke-width:4;stroke-linejoin:round;stroke-linecap:round}.marker{fill:#166a72;stroke:#fbfbf8;stroke-width:3}.labelbox{fill:#ffffff;stroke:#d0d0ca;stroke-width:1.2;rx:6}.muted{fill:#666}</style>
+<text class="title" x="100" y="42">Codex proofbench progress</text>
+<text class="subtitle" x="100" y="68">residual-100-v1, cumulative first judge-accepted certificates; t=0 at 2026-05-26 10:50 local time</text>
+<line class="grid" x1="100" y1="625.0" x2="1130" y2="625.0"/>
+<text class="tick" x="86" y="630.0" text-anchor="end">0</text>
+<line class="grid" x1="100" y1="570.5" x2="1130" y2="570.5"/>
+<text class="tick" x="86" y="575.5" text-anchor="end">10</text>
+<line class="grid" x1="100" y1="516.0" x2="1130" y2="516.0"/>
+<text class="tick" x="86" y="521.0" text-anchor="end">20</text>
+<line class="grid" x1="100" y1="461.5" x2="1130" y2="461.5"/>
+<text class="tick" x="86" y="466.5" text-anchor="end">30</text>
+<line class="grid" x1="100" y1="407.0" x2="1130" y2="407.0"/>
+<text class="tick" x="86" y="412.0" text-anchor="end">40</text>
+<line class="grid" x1="100" y1="352.5" x2="1130" y2="352.5"/>
+<text class="tick" x="86" y="357.5" text-anchor="end">50</text>
+<line class="grid" x1="100" y1="298.0" x2="1130" y2="298.0"/>
+<text class="tick" x="86" y="303.0" text-anchor="end">60</text>
+<line class="grid" x1="100" y1="243.5" x2="1130" y2="243.5"/>
+<text class="tick" x="86" y="248.5" text-anchor="end">70</text>
+<line class="grid" x1="100" y1="189.0" x2="1130" y2="189.0"/>
+<text class="tick" x="86" y="194.0" text-anchor="end">80</text>
+<line class="grid" x1="100" y1="134.5" x2="1130" y2="134.5"/>
+<text class="tick" x="86" y="139.5" text-anchor="end">90</text>
+<line class="grid" x1="100" y1="80.0" x2="1130" y2="80.0"/>
+<text class="tick" x="86" y="85.0" text-anchor="end">100</text>
+<line class="grid" x1="100.0" y1="80" x2="100.0" y2="625"/>
+<text class="tick" x="100.0" y="653" text-anchor="middle">0</text>
+<line class="grid" x1="193.6" y1="80" x2="193.6" y2="625"/>
+<text class="tick" x="193.6" y="653" text-anchor="middle">2</text>
+<line class="grid" x1="287.3" y1="80" x2="287.3" y2="625"/>
+<text class="tick" x="287.3" y="653" text-anchor="middle">4</text>
+<line class="grid" x1="380.9" y1="80" x2="380.9" y2="625"/>
+<text class="tick" x="380.9" y="653" text-anchor="middle">6</text>
+<line class="grid" x1="474.5" y1="80" x2="474.5" y2="625"/>
+<text class="tick" x="474.5" y="653" text-anchor="middle">8</text>
+<line class="grid" x1="568.2" y1="80" x2="568.2" y2="625"/>
+<text class="tick" x="568.2" y="653" text-anchor="middle">10</text>
+<line class="grid" x1="661.8" y1="80" x2="661.8" y2="625"/>
+<text class="tick" x="661.8" y="653" text-anchor="middle">12</text>
+<line class="grid" x1="755.5" y1="80" x2="755.5" y2="625"/>
+<text class="tick" x="755.5" y="653" text-anchor="middle">14</text>
+<line class="grid" x1="849.1" y1="80" x2="849.1" y2="625"/>
+<text class="tick" x="849.1" y="653" text-anchor="middle">16</text>
+<line class="grid" x1="942.7" y1="80" x2="942.7" y2="625"/>
+<text class="tick" x="942.7" y="653" text-anchor="middle">18</text>
+<line class="grid" x1="1036.4" y1="80" x2="1036.4" y2="625"/>
+<text class="tick" x="1036.4" y="653" text-anchor="middle">20</text>
+<line class="grid" x1="1130.0" y1="80" x2="1130.0" y2="625"/>
+<text class="tick" x="1130.0" y="653" text-anchor="middle">22</text>
+<line class="target" x1="100" y1="80.0" x2="1130" y2="80.0"/>
+<text class="small" x="1122" y="102.0" text-anchor="end" fill="#8a4d00">100 target</text>
+<line class="axis" x1="100" y1="80" x2="100" y2="625"/>
+<line class="axis" x1="100" y1="625" x2="1130" y2="625"/>
+<path class="line" d="M 100.0 625.0 L 104.5 625.0 L 104.5 619.5 L 105.5 619.5 L 105.5 586.9 L 106.9 586.9 L 106.9 581.4 L 114.3 581.4 L 114.3 576.0 L 115.9 576.0 L 115.9 548.7 L 120.5 548.7 L 120.5 543.2 L 127.7 543.2 L 127.7 537.8 L 128.2 537.8 L 128.2 532.4 L 140.6 532.4 L 140.6 526.9 L 145.1 526.9 L 145.1 521.5 L 145.7 521.5 L 145.7 516.0 L 157.1 516.0 L 157.1 510.6 L 245.1 510.6 L 245.1 505.1 L 274.7 505.1 L 274.7 499.6 L 286.1 499.6 L 286.1 488.8 L 314.5 488.8 L 314.5 483.3 L 315.0 483.3 L 315.0 477.9 L 315.1 477.9 L 315.1 472.4 L 315.2 472.4 L 315.2 467.0 L 315.5 467.0 L 315.5 461.5 L 315.6 461.5 L 315.6 456.1 L 319.1 456.1 L 319.1 445.1 L 319.2 445.1 L 319.2 439.7 L 319.3 439.7 L 319.3 434.2 L 319.4 434.2 L 319.4 428.8 L 319.8 428.8 L 319.8 423.4 L 322.8 423.4 L 322.8 417.9 L 322.9 417.9 L 322.9 412.4 L 324.2 412.4 L 324.2 407.0 L 324.3 407.0 L 324.3 401.6 L 324.4 401.6 L 324.4 396.1 L 324.5 396.1 L 324.5 390.6 L 324.7 390.6 L 324.7 385.2 L 324.7 385.2 L 324.7 379.8 L 324.8 379.8 L 324.8 374.3 L 326.8 374.3 L 326.8 368.9 L 328.0 368.9 L 328.0 363.4 L 329.6 363.4 L 329.6 357.9 L 333.7 357.9 L 333.7 352.5 L 333.9 352.5 L 333.9 347.1 L 334.2 347.1 L 334.2 341.6 L 346.6 341.6 L 346.6 336.1 L 350.7 336.1 L 350.7 330.7 L 399.8 330.7 L 399.8 319.8 L 409.5 319.8 L 409.5 298.0 L 409.6 298.0 L 409.6 276.2 L 411.4 276.2 L 411.4 259.8 L 411.5 259.8 L 411.5 243.5 L 419.0 243.5 L 419.0 238.1 L 419.1 238.1 L 419.1 232.6 L 419.1 232.6 L 419.1 227.2 L 419.6 227.2 L 419.6 221.7 L 430.9 221.7 L 430.9 216.2 L 431.0 216.2 L 431.0 210.8 L 445.3 210.8 L 445.3 205.3 L 499.1 205.3 L 499.1 199.9 L 501.2 199.9 L 501.2 194.4 L 506.0 194.4 L 506.0 189.0 L 528.1 189.0 L 528.1 183.5 L 624.4 183.5 L 624.4 172.7 L 664.9 172.7 L 664.9 161.8 L 669.1 161.8 L 669.1 150.9 L 825.7 150.9 L 825.7 145.4 L 945.2 145.4 L 945.2 139.9 L 946.5 139.9 L 946.5 134.5 L 1004.6 134.5 L 1004.6 129.1 L 1020.9 129.1 L 1020.9 123.6 L 1113.2 123.6 L 1113.2 118.1 L 1125.6 118.1 L 1125.6 112.7 L 1130.0 112.7"/>
+<circle class="marker" cx="157.1" cy="510.6" r="6"/>
+<circle class="marker" cx="333.7" cy="352.5" r="6"/>
+<circle class="marker" cx="430.9" cy="216.2" r="6"/>
+<circle class="marker" cx="946.5" cy="134.5" r="6"/>
+<circle class="marker" cx="1125.6" cy="112.7" r="6"/>
+<rect class="labelbox" x="880.0" y="94.0" width="235" height="62"/>
+<text x="894.0" y="119.0" font-size="20" font-weight="700">94 accepted</text>
+<text class="small" x="894.0" y="142.0">21.9 elapsed hours</text>
+<text class="small" x="615.0" y="692" text-anchor="middle">Elapsed hours</text>
+<text class="small" transform="translate(30 352.5) rotate(-90)" text-anchor="middle">Accepted count</text>
+<text class="tick" x="100" y="712">Source: local artifacts/proofbench_runs judge result files; duplicates counted once by first accepted problem id.</text>
+</svg>
