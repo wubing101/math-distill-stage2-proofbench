@@ -6,11 +6,11 @@ Chinese version: [README.zh-CN.md](README.zh-CN.md)
 
 ## Codex Solver Results
 
-For `residual-100-v1`, Codex with the `stage2-proofbench-solver` workflow reached `94 / 100` first judge-accepted certificates by about `21.9` elapsed hours. The run continued through about `72.7` hours without another official acceptance, leaving six rows unsolved under the accepted-certificate-only rule.
+For `residual-100-v1`, Codex with the `stage2-proofbench-solver` workflow reached `94 / 100` (`94.0%`) first judge-accepted certificates by about `21.9` elapsed hours. The run continued through about `72.7` hours without another official acceptance, leaving six rows unsolved under the accepted-certificate-only rule.
 
 ![Codex accepted progress](docs/assets/codex_accepted_progress.svg)
 
-For `residual-1000`, the same accounting compares three versions with `12-84h` compressed to emphasize the early curve: v1 reaches `736 / 1000`, v2 reaches `792 / 1000`, and v3 reaches `737 / 1000`. v2 is strongest overall, while all three versions flatten sharply after the first `12` elapsed hours, showing an empirical long-tail limit for the current Codex GPT-5.5 xhigh plus `stage2-proofbench-solver` workflow.
+For `residual-1000`, the same accounting compares three versions with `12-84h` compressed to emphasize the early curve: v1 reaches `736 / 1000` (`73.6%`), v2 reaches `792 / 1000` (`79.2%`), and v3 reaches `737 / 1000` (`73.7%`). v2 is strongest overall, while all three versions flatten sharply after the first `12` elapsed hours, showing an empirical long-tail limit for the current Codex GPT-5.5 xhigh plus `stage2-proofbench-solver` workflow.
 
 ![Codex residual-1000 accepted progress by version](docs/assets/residual1000_versions_accepted_progress_12_84_compressed.png)
 
@@ -90,55 +90,10 @@ The final sample contains 98 distinct `shape_bucket` values. No `shape_bucket` a
 | `order5_source_to_order4_target` | 75 | 57 | 74 |
 | `order5_source_to_order5_target` | 872 | 888 | 880 |
 
-These larger samples are less tail-focused than the six remaining `residual-100-v1` rows but still expose a substantial long tail after the currently accepted 736 v1 rows.
-
-## Experiment Protocol
-
-Treat this repository as a fixed challenge set:
-
-1. Generate a Stage 2 judge-compatible certificate for each row in `problems.jsonl`.
-2. Verify the certificate with the official-compatible Lean 4 judge/verifier.
-3. Count only judge-accepted certificates as solved.
-4. Record the model, prompt, skill version, raw response, judge verdict, and error summary.
-
-Remote verification uses the judge-v2 control service through asynchronous jobs: `POST /jobs` followed by `GET /jobs/{job_id}/wait`. The helper defaults to the current judge-v2 control endpoint and can be overridden with `--base-urls`, `PROOFBENCH_REMOTE_JUDGE_V2_BASE_URLS`, or `STAGE2_REMOTE_JUDGE_BASE_URLS`.
-
-Recommended report fields:
-
-- `attempted`: number of attempted rows.
-- `accepted`: number of judge-accepted rows.
-- `accepted_rate`: `accepted / sample_count`, for example `/ 100` for `residual-100-v1` or `/ 1000` for `residual-1000-v1`.
-- `true_accepted` / `false_accepted`: accepted counts by certificate verdict, if available.
-- `reproducibility_notes`: model, date, prompt, solver code, skill workflow, and toolchain versions.
+These larger samples are less tail-focused than the six remaining `residual-100-v1` rows but still expose a substantial long tail after the currently accepted 736 (`73.6%`) v1 rows.
 
 ## Notes
 
 This benchmark is not an unbiased estimate of the full 176M residual universe. It is meant to be a small but stable proofbench for comparing models, prompts, skill workflows, and proof repair methods on exactly the same rows.
 
 Because the rows do not contain labels, a claimed answer should be considered experimental until it is backed by an accepted Lean 4 certificate.
-
-## Tooling
-
-The lightweight package exposes repeatable helpers:
-
-```bash
-uv run proofbench-build-judge-input --problems data/residual-100-v1/problems.jsonl --candidates candidates.jsonl --output judge_input.jsonl
-uv run proofbench-remote-judge --input judge_input.jsonl --output judge_results.jsonl --summary summary.json --base-urls "$PROOFBENCH_REMOTE_JUDGE_V2_BASE_URLS"
-uv run proofbench-summarize-results judge_results.jsonl --summary summary.json
-uv run proofbench-log-attempt --ledger attempts.jsonl --from-results judge_results.jsonl --route my-route
-uv run proofbench-route-problem --ids 0041 --format json
-uv run proofbench-audit-attempts --ids 0041 --format text
-uv run --group dev pytest
-```
-
-Install optional solver dependencies with `uv sync --extra solver` when running the Z3/PySAT helper scripts under the Codex skill.
-
-## Quick Checks
-
-```bash
-wc -l data/residual-100-v1/problems.jsonl data/residual-1000-v1/problems.jsonl
-jq '.selected_summary' data/residual-100-v1/manifest.json
-jq '.selected_summary' data/residual-1000-v1/manifest.json
-jq '.selected_summary' data/residual-1000-v2/manifest.json
-jq '.selected_summary' data/residual-1000-v3/manifest.json
-```
