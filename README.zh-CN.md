@@ -4,11 +4,15 @@
 
 英文主版本：[README.md](README.md)
 
-## Codex 进展
+## Codex 求解结果
 
-下图展示了 Codex 使用 `stage2-proofbench-solver` skill workflow 攻击 `residual-100-v1` 时，随着经过小时数增长，累计首次被 judge accepted 的 certificate 数量。这里每一题只按第一次 accepted 计数，重复 re-verification 不重复累计。
+对于 `residual-100-v1`，Codex 结合 `stage2-proofbench-solver` workflow 在约 `21.9` 个 elapsed hours 时达到 `94 / 100`（`94.0%`）个首次 judge-accepted certificate。运行继续到约 `72.7` 小时后没有新增 official acceptance，仍有 6 题未解。
 
 ![Codex accepted progress](docs/assets/codex_accepted_progress.svg)
+
+对于 `residual-1000`，同样口径比较三个版本，并将 `12-84h` 压缩显示以突出早期曲线：v1 为 `736 / 1000`（`73.6%`），v2 为 `792 / 1000`（`79.2%`），v3 为 `737 / 1000`（`73.7%`）。v2 综合最强，三条曲线在前 `12` 个 elapsed hours 后都明显变平，显示当前 Codex GPT-5.5 xhigh 加 `stage2-proofbench-solver` workflow 的长尾能力边界。
+
+![Codex residual-1000 accepted progress by version](docs/assets/residual1000_versions_accepted_progress_12_84_compressed.png)
 
 ## 比赛背景
 
@@ -31,6 +35,12 @@ Stage 2 的有趣之处在于，答案不是普通的 `true` / `false` 文本，
 
 - `data/residual-100-v1/problems.jsonl`
 - `data/residual-100-v1/manifest.json`
+- `data/residual-1000-v1/problems.jsonl`
+- `data/residual-1000-v1/manifest.json`
+- `data/residual-1000-v2/problems.jsonl`
+- `data/residual-1000-v2/manifest.json`
+- `data/residual-1000-v3/problems.jsonl`
+- `data/residual-1000-v3/manifest.json`
 
 `residual-100-v1` 包含 100 个 Stage 2 equation implication 问题。每一行是一道题，重要字段包括：
 
@@ -44,11 +54,13 @@ Stage 2 的有趣之处在于，答案不是普通的 `true` / `false` 文本，
 
 目前这些数据都没有真实标签。数据集中也不包含模型输出、judge 结果、私有 judge backend 地址或官方 `test_locked` 数据。
 
+`residual-1000-v1`、`residual-1000-v2` 和 `residual-1000-v3` 每个版本都包含 1000 行，字段 schema 相同。三个 manifest 分别报告 1000 个 unique ordered pair，并包含 638、623、667 个不同的 `shape_bucket`。
+
 ## Residual 来源
 
 本地 order5 有序 pair 宇宙一开始有 `3,915,693,200` 个可能 pair。通过 deterministic strategy coverage 和 residual filtering，目前把空间缩小到 `176,175,766` 个 unresolved residual pair，也就是大约 `1.8e8`。
 
-这个公开 proofbench 是从 residual 空间里抽出的 100 道固定题。后续目标是尝试通过 LLM skill workflow 来解决这些问题：生成 Lean 4 certificate，并用 accepted certificate 反过来获得标签。
+这个公开 proofbench 现在包含一个 100 题样本和三个 1000 题样本。后续目标是尝试通过 LLM skill workflow 来解决这些问题：生成 Lean 4 certificate，并用 accepted certificate 反过来获得标签。
 
 ## 采样口径
 
@@ -71,32 +83,19 @@ Stage 2 的有趣之处在于，答案不是普通的 `true` / `false` 文本，
 
 最终样本包含 98 个不同的 `shape_bucket`，单个 `shape_bucket` 最多出现 2 次。
 
-## 实验协议
+`residual-1000-v1`、`residual-1000-v2` 和 `residual-1000-v3` 沿用同样的无标签、certificate-only 口径。三版 stratum 分布如下：
 
-建议把这个 repo 当作固定 challenge set 使用：
+| stratum | v1 | v2 | v3 |
+| --- | ---: | ---: | ---: |
+| `order4_source_to_order4_target` | 2 | 3 | 5 |
+| `order4_source_to_order5_target` | 51 | 52 | 41 |
+| `order5_source_to_order4_target` | 75 | 57 | 74 |
+| `order5_source_to_order5_target` | 872 | 888 | 880 |
 
-1. 对 `problems.jsonl` 中每一题生成 Stage 2 judge-compatible certificate。
-2. 使用官方兼容的 Lean 4 judge/verifier 验证 certificate。
-3. 只把 judge accepted 的 certificate 计入 solved。
-4. 记录模型、提示词、skill 版本、raw response、judge verdict 和错误摘要。
-
-建议报告：
-
-- `attempted`：尝试题数。
-- `accepted`：accepted 题数。
-- `accepted_rate`：`accepted / 100`。
-- `true_accepted` / `false_accepted`：如果能区分 certificate verdict，则分别报告 true/false accepted。
-- `reproducibility_notes`：模型、日期、提示词、solver code、skill workflow 和工具链版本。
+这些更大的样本不像 `residual-100-v1` 剩余 6 题那样集中在极端尾部，但 v1 当前达到 736（`73.6%`）个 accepted 后，仍然暴露出明显长尾。
 
 ## 注意事项
 
 这个 benchmark 不是完整 1.76 亿 residual universe 的无偏估计。它更适合作为一个小而稳定的 public proofbench：比较不同模型、提示词、skill workflow 和 proof repair 方法在同一批 residual 上的表现。
 
 因为这些行本身不带标签，任何声称的答案都应该先视为实验结果，直到它有一个被 Lean 4 judge 接受的 certificate。
-
-## 快速检查
-
-```bash
-wc -l data/residual-100-v1/problems.jsonl
-jq '.selected_summary' data/residual-100-v1/manifest.json
-```
