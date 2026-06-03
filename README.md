@@ -43,6 +43,10 @@ Current version:
 - `data/residual-100-v1/manifest.json`
 - `data/residual-1000-v1/problems.jsonl`
 - `data/residual-1000-v1/manifest.json`
+- `data/residual-1000-v2/problems.jsonl`
+- `data/residual-1000-v2/manifest.json`
+- `data/residual-1000-v3/problems.jsonl`
+- `data/residual-1000-v3/manifest.json`
 
 `residual-100-v1` contains 100 Stage 2 equation implication problems. Each JSONL row is one problem. Important fields include:
 
@@ -56,7 +60,7 @@ Current version:
 
 No ground-truth labels are included. The dataset also does not include model outputs, judge results, private judge backend URLs, or official `test_locked` rows.
 
-`residual-1000-v1` contains 1000 rows with the same row schema. Its manifest reports 1000 unique ordered pairs across 638 distinct `shape_bucket` values, with stratum counts of 2 `order4_source_to_order4_target`, 51 `order4_source_to_order5_target`, 75 `order5_source_to_order4_target`, and 872 `order5_source_to_order5_target`.
+`residual-1000-v1`, `residual-1000-v2`, and `residual-1000-v3` each contain 1000 rows with the same row schema. Their manifests report 1000 unique ordered pairs per version, with 638, 623, and 667 distinct `shape_bucket` values respectively.
 
 ## Residual Source
 
@@ -85,16 +89,16 @@ Final stratum distribution:
 
 The final sample contains 98 distinct `shape_bucket` values. No `shape_bucket` appears more than twice.
 
-`residual-1000-v1` was created from a 2026-05-29 residual sample and keeps the same unlabeled certificate-only protocol at larger scale. Its stratum distribution is:
+`residual-1000-v1`, `residual-1000-v2`, and `residual-1000-v3` keep the same unlabeled certificate-only protocol at larger scale. Their stratum distributions are:
 
-| stratum | count |
-| --- | ---: |
-| `order4_source_to_order4_target` | 2 |
-| `order4_source_to_order5_target` | 51 |
-| `order5_source_to_order4_target` | 75 |
-| `order5_source_to_order5_target` | 872 |
+| stratum | v1 | v2 | v3 |
+| --- | ---: | ---: | ---: |
+| `order4_source_to_order4_target` | 2 | 3 | 5 |
+| `order4_source_to_order5_target` | 51 | 52 | 41 |
+| `order5_source_to_order4_target` | 75 | 57 | 74 |
+| `order5_source_to_order5_target` | 872 | 888 | 880 |
 
-This larger sample has 638 distinct `shape_bucket` values, so it is less tail-focused than the six remaining `residual-100-v1` rows but still exposes a substantial long tail after the currently accepted 736 v1 rows.
+These larger samples are less tail-focused than the six remaining `residual-100-v1` rows but still expose a substantial long tail after the currently accepted 736 v1 rows.
 
 ## Experiment Protocol
 
@@ -143,4 +147,6 @@ Install optional solver dependencies with `uv sync --extra solver` when running 
 wc -l data/residual-100-v1/problems.jsonl data/residual-1000-v1/problems.jsonl
 jq '.selected_summary' data/residual-100-v1/manifest.json
 jq '.selected_summary' data/residual-1000-v1/manifest.json
+jq '.selected_summary' data/residual-1000-v2/manifest.json
+jq '.selected_summary' data/residual-1000-v3/manifest.json
 ```

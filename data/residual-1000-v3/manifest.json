@@ -1,0 +1,226 @@
+{
+  "benchmark_id": "residual-1000-v3",
+  "created_date": "2026-06-02",
+  "field_schema": {
+    "answer": "null; hidden/unknown for this challenge set",
+    "eq1_id / eq2_id": "equation IDs from the local eq_size5.txt",
+    "equation1": "source equation, using * as the binary operation",
+    "equation2": "target equation, using * as the binary operation",
+    "expected_verdict": "null; a participant must produce a true or false Lean-verifiable certificate",
+    "pair_index": "deterministic ordered-pair index from the local Stage 2 order5 pair space",
+    "shape_bucket": "coarse source_shape -> target_shape bucket used only for sampling diagnostics",
+    "source_sample_id": "original sample_id from the math-distill-equational-stage2 source workspace",
+    "stratum": "order4/order5 source-target size stratum"
+  },
+  "file_hashes": {
+    "problems_jsonl_sha256": "eaf552c80b6c5cd7ad050d88a58f12240e9a87ca5e85a6adab355ed1d8f117dd",
+    "shape_buckets_json_sha256": "319518a11f8cdeb8d96d8f750352e46ea3eee62669e7970cea8b4fad41480f02"
+  },
+  "files": {
+    "manifest_json": "data/residual-1000-v3/manifest.json",
+    "problems_jsonl": "data/residual-1000-v3/problems.jsonl",
+    "shape_buckets_json": "data/residual-1000-v3/shape_buckets.json"
+  },
+  "notes": [
+    "This is an unofficial public challenge set, not an official leaderboard split.",
+    "Rows are sampled from the current columnar graph exact unknown layer, after the latest local exact true/false refresh available in the source workspace.",
+    "No official test_locked rows, judge backend URLs, model attempts, or judge outcomes are included.",
+    "The sample is independent from residual-1000-v1 and residual-1000-v2 and has zero pair-index / eq-pair overlap with both in this workspace."
+  ],
+  "public_scope": {
+    "answer_labels_available": false,
+    "contains_judge_results": false,
+    "contains_model_outputs": false,
+    "contains_private_judge_backend": false,
+    "contains_test_locked": false
+  },
+  "sample_count": 1000,
+  "schema_version": 1,
+  "selected_summary": {
+    "stratum_counts": {
+      "order4_source_to_order4_target": 5,
+      "order4_source_to_order5_target": 41,
+      "order5_source_to_order4_target": 74,
+      "order5_source_to_order5_target": 880
+    },
+    "top_shape_buckets": [
+      {
+        "count": 10,
+        "shape_bucket": "roots=mul>mul|d=1>3|vc=3|lm=0|rm=0|vs=0 -> roots=mul>mul|d=1>4|vc=4|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 8,
+        "shape_bucket": "roots=mul>mul|d=1>4|vc=4|lm=0|rm=0|vs=0 -> roots=mul>mul|d=1>3|vc=3|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 8,
+        "shape_bucket": "roots=mul>mul|d=1>3|vc=4|lm=0|rm=0|vs=0 -> roots=mul>mul|d=1>3|vc=4|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 7,
+        "shape_bucket": "roots=mul>mul|d=1>4|vc=3|lm=0|rm=0|vs=0 -> roots=mul>mul|d=1>4|vc=4|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 6,
+        "shape_bucket": "roots=var>mul|d=0>4|vc=3|lm=0|rm=0|vs=0 -> roots=var>mul|d=0>4|vc=4|lm=0|rm=1|vs=0"
+      },
+      {
+        "count": 6,
+        "shape_bucket": "roots=mul>mul|d=1>3|vc=4|lm=0|rm=0|vs=0 -> roots=mul>mul|d=1>4|vc=4|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 6,
+        "shape_bucket": "roots=var>mul|d=0>4|vc=4|lm=0|rm=1|vs=0 -> roots=var>mul|d=0>4|vc=4|lm=0|rm=1|vs=0"
+      },
+      {
+        "count": 6,
+        "shape_bucket": "roots=mul>mul|d=1>4|vc=4|lm=0|rm=0|vs=0 -> roots=mul>mul|d=2>3|vc=4|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 6,
+        "shape_bucket": "roots=var>mul|d=0>4|vc=3|lm=0|rm=1|vs=0 -> roots=var>mul|d=0>4|vc=4|lm=0|rm=1|vs=0"
+      },
+      {
+        "count": 6,
+        "shape_bucket": "roots=var>mul|d=0>4|vc=3|lm=0|rm=0|vs=0 -> roots=var>mul|d=0>4|vc=5|lm=0|rm=0|vs=0"
+      }
+    ],
+    "top_source_shapes": [
+      {
+        "count": 98,
+        "source_shape": "roots=mul>mul|d=1>4|vc=4|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 73,
+        "source_shape": "roots=mul>mul|d=1>3|vc=4|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 73,
+        "source_shape": "roots=var>mul|d=0>4|vc=3|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 57,
+        "source_shape": "roots=mul>mul|d=1>3|vc=3|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 56,
+        "source_shape": "roots=var>mul|d=0>5|vc=3|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 56,
+        "source_shape": "roots=var>mul|d=0>4|vc=4|lm=1|rm=0|vs=0"
+      },
+      {
+        "count": 55,
+        "source_shape": "roots=var>mul|d=0>4|vc=4|lm=0|rm=1|vs=0"
+      },
+      {
+        "count": 52,
+        "source_shape": "roots=mul>mul|d=1>4|vc=3|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 43,
+        "source_shape": "roots=var>mul|d=0>4|vc=3|lm=0|rm=1|vs=0"
+      },
+      {
+        "count": 40,
+        "source_shape": "roots=var>mul|d=0>5|vc=4|lm=0|rm=1|vs=0"
+      }
+    ],
+    "top_target_shapes": [
+      {
+        "count": 30,
+        "target_shape": "roots=mul>mul|d=1>4|vc=4|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 24,
+        "target_shape": "roots=mul>mul|d=2>3|vc=4|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 23,
+        "target_shape": "roots=var>mul|d=0>4|vc=4|lm=0|rm=1|vs=0"
+      },
+      {
+        "count": 22,
+        "target_shape": "roots=mul>mul|d=1>4|vc=4|lm=0|rm=1|vs=0"
+      },
+      {
+        "count": 22,
+        "target_shape": "roots=mul>mul|d=1>3|vc=4|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 21,
+        "target_shape": "roots=var>mul|d=0>4|vc=3|lm=0|rm=1|vs=0"
+      },
+      {
+        "count": 21,
+        "target_shape": "roots=mul>mul|d=1>4|vc=3|lm=1|rm=0|vs=0"
+      },
+      {
+        "count": 21,
+        "target_shape": "roots=mul>mul|d=1>4|vc=3|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 20,
+        "target_shape": "roots=mul>mul|d=1>4|vc=3|lm=0|rm=1|vs=0"
+      },
+      {
+        "count": 19,
+        "target_shape": "roots=mul>mul|d=2>3|vc=3|lm=0|rm=1|vs=0"
+      }
+    ],
+    "unique_pair_count": 1000,
+    "unique_shape_bucket_count": 667,
+    "unique_source_shape_count": 68,
+    "unique_target_shape_count": 153
+  },
+  "selection_method": "pair-uniform rejection sampling from the current columnar exact-unknown true/false layers",
+  "selection_seed": 20260602,
+  "source": {
+    "equation_file": "external/equational-theories-lean-stage2/examples/problems/eq_size5.txt",
+    "equations_sha256": "b41af2d6d5193b0be91c5ea330b8bef7f03dc55277a58905f8d86b6ba0ac810c",
+    "source_buckets_json": "data/processed/order5_strategy_registry/current_residual_columnar_exact_unknown_1000_seed20260602_v3_buckets.json",
+    "source_buckets_sha256": "319518a11f8cdeb8d96d8f750352e46ea3eee62669e7970cea8b4fad41480f02",
+    "source_repository": "math-distill-equational-stage2 local workspace",
+    "source_sample_jsonl": "data/processed/order5_strategy_registry/current_residual_columnar_exact_unknown_1000_seed20260602_v3_sample.jsonl",
+    "source_sample_sha256": "d43badd98a87d673766725d68f75eeabc93fe03ba8b5352aa12487f14ef5f07e",
+    "source_summary_json": "data/processed/order5_strategy_registry/current_residual_columnar_exact_unknown_1000_seed20260602_v3_summary.json",
+    "source_summary_sha256": "7fb24ca3f3dfff7dcd3f262bdf0d682885ba00b7add1a676d786b6d0a5dfb27e",
+    "store_dir": "data/processed/order5_columnar_graph_store"
+  },
+  "source_pool_summary": {
+    "conflict_count": 0,
+    "exact_false_count": 2387094132,
+    "exact_true_count": 1394642798,
+    "exact_unknown_count": 133956270,
+    "sampling_algorithm": [
+      "Use random.Random(seed).randrange(pair_count) over directed non-self pair indexes.",
+      "Reject duplicate draws.",
+      "Reject pairs set in the exact true or exact false bitset layers.",
+      "Materialize the first sample_size unique exact-unknown pairs."
+    ],
+    "sampling_counts": {
+      "covered_by_exact_false": 17513,
+      "covered_by_exact_true": 10318,
+      "draw_acceptance_rate": 0.034684887794387984,
+      "random_candidate_draws": 28831,
+      "selected_exact_unknown": 1000,
+      "unique_random_pair_draws": 28831
+    },
+    "sampling_scope": "columnar_exact_unknown_true_false_layers",
+    "total_pairs": 3915693200
+  },
+  "title": "Math Distill Stage 2 Residual-1000 v3",
+  "v1_comparison": {
+    "eq_pair_overlap_count": 0,
+    "pair_index_overlap_count": 0,
+    "v1_count": 1000,
+    "v1_problems_jsonl": "data/residual-1000-v1/problems.jsonl"
+  },
+  "v2_comparison": {
+    "eq_pair_overlap_count": 0,
+    "pair_index_overlap_count": 0,
+    "v2_count": 1000,
+    "v2_problems_jsonl": "data/residual-1000-v2/problems.jsonl"
+  }
+}
