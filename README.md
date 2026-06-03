@@ -4,23 +4,15 @@ Unofficial residual Lean certificate benchmark for solver, LLM, and skill-workfl
 
 Chinese version: [README.zh-CN.md](README.zh-CN.md)
 
-## Codex Progress
+## Codex Solver Results
 
-The following chart shows cumulative first accepted certificates over elapsed hours for `residual-100-v1`, using Codex with the `stage2-proofbench-solver` skill workflow. It counts only certificates accepted by the official-compatible Lean 4 judge/verifier, with duplicate re-verifications counted once by problem id.
+For `residual-100-v1`, Codex with the `stage2-proofbench-solver` workflow reached `94 / 100` first judge-accepted certificates by about `21.9` elapsed hours. The run continued through about `72.7` hours without another official acceptance, leaving six rows unsolved under the accepted-certificate-only rule.
 
 ![Codex accepted progress](docs/assets/codex_accepted_progress.svg)
 
-The chart now uses an 80-hour x-axis to make the post-94 plateau visible. Codex reached `94 / 100` judge-accepted certificates by about `21.9` elapsed hours. After that, residual-100-v1 work continued through about `72.7` elapsed hours, but no additional official judge acceptance was found.
-
-The remaining six rows are therefore still unsolved under the project rule that only official judge `accepted` certificates count: `residual100_v1_0007`, `residual100_v1_0012`, `residual100_v1_0022`, `residual100_v1_0040`, `residual100_v1_0041`, and `residual100_v1_0049`. Some of these rows have substantial exploratory evidence, rejected official attempts, or fake-target lemma progress, but none has an official accepted certificate yet.
-
-The same accounting was applied to three `residual-1000` versions. The chart below compares cumulative first judge-accepted certificates over elapsed hours, with the `12-84h` range compressed so the early `0-12h` dynamics remain readable. Current local judge artifacts show `736 / 1000` accepted for v1, `792 / 1000` for v2, and `737 / 1000` for v3.
+For `residual-1000`, the same accounting compares three versions with `12-84h` compressed to emphasize the early curve: v1 reaches `736 / 1000`, v2 reaches `792 / 1000`, and v3 reaches `737 / 1000`. v2 is strongest overall, while all three versions flatten sharply after the first `12` elapsed hours, showing an empirical long-tail limit for the current Codex GPT-5.5 xhigh plus `stage2-proofbench-solver` workflow.
 
 ![Codex residual-1000 accepted progress by version](docs/assets/residual1000_versions_accepted_progress_12_84_compressed.png)
-
-The comparison is therefore two-sided. `residual-100-v1` reached a higher solved fraction (`94%`) but then exposed six stubborn tail rows. The `residual-1000` runs currently have lower solved fractions, but much larger absolute harvests, showing that many recurring residual shapes are now covered by reusable routes. The visible plateaus after the first several hundred accepts suggest that the remaining rows are again tail-heavy rather than merely untried.
-
-This is also a useful empirical limit for the current Codex GPT-5.5 xhigh plus `stage2-proofbench-solver` workflow. The workflow is strong on recurring residual patterns, but the best run here still plateaus at `792 / 1000`, and all three versions flatten sharply after the first `12` elapsed hours. That pattern suggests that the remaining rows require more than simply letting the same workflow run longer.
 
 ## Competition Context
 
