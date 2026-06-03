@@ -10,6 +10,18 @@ The following chart shows cumulative first accepted certificates over elapsed ho
 
 ![Codex accepted progress](docs/assets/codex_accepted_progress.svg)
 
+The chart now uses an 80-hour x-axis to make the post-94 plateau visible. Codex reached `94 / 100` judge-accepted certificates by about `21.9` elapsed hours. After that, residual-100-v1 work continued through about `72.7` elapsed hours, but no additional official judge acceptance was found.
+
+The remaining six rows are therefore still unsolved under the project rule that only official judge `accepted` certificates count: `residual100_v1_0007`, `residual100_v1_0012`, `residual100_v1_0022`, `residual100_v1_0040`, `residual100_v1_0041`, and `residual100_v1_0049`. Some of these rows have substantial exploratory evidence, rejected official attempts, or fake-target lemma progress, but none has an official accepted certificate yet.
+
+The same accounting was applied to three `residual-1000` versions. The chart below compares cumulative first judge-accepted certificates over elapsed hours, with the `12-84h` range compressed so the early `0-12h` dynamics remain readable. Current local judge artifacts show `736 / 1000` accepted for v1, `792 / 1000` for v2, and `737 / 1000` for v3.
+
+![Codex residual-1000 accepted progress by version](docs/assets/residual1000_versions_accepted_progress_12_84_compressed.png)
+
+The comparison is therefore two-sided. `residual-100-v1` reached a higher solved fraction (`94%`) but then exposed six stubborn tail rows. The `residual-1000` runs currently have lower solved fractions, but much larger absolute harvests, showing that many recurring residual shapes are now covered by reusable routes. The visible plateaus after the first several hundred accepts suggest that the remaining rows are again tail-heavy rather than merely untried.
+
+This is also a useful empirical limit for the current Codex GPT-5.5 xhigh plus `stage2-proofbench-solver` workflow. The workflow is strong on recurring residual patterns, but the best run here still plateaus at `792 / 1000`, and all three versions flatten sharply after the first `12` elapsed hours. That pattern suggests that the remaining rows require more than simply letting the same workflow run longer.
+
 ## Competition Context
 
 This dataset is derived from the competition setting of the [SAIR Mathematics Distillation Challenge: Equational Theories Stage 2](https://competition.sair.foundation/competitions/mathematics-distillation-challenge-equational-theories-stage2/evaluation-setup). The official Stage 2 repository is [SAIRcompetition/equational-theories-lean-stage2](https://github.com/SAIRcompetition/equational-theories-lean-stage2).
@@ -29,6 +41,8 @@ Current version:
 
 - `data/residual-100-v1/problems.jsonl`
 - `data/residual-100-v1/manifest.json`
+- `data/residual-1000-v1/problems.jsonl`
+- `data/residual-1000-v1/manifest.json`
 
 `residual-100-v1` contains 100 Stage 2 equation implication problems. Each JSONL row is one problem. Important fields include:
 
@@ -42,11 +56,13 @@ Current version:
 
 No ground-truth labels are included. The dataset also does not include model outputs, judge results, private judge backend URLs, or official `test_locked` rows.
 
+`residual-1000-v1` contains 1000 rows with the same row schema. Its manifest reports 1000 unique ordered pairs across 638 distinct `shape_bucket` values, with stratum counts of 2 `order4_source_to_order4_target`, 51 `order4_source_to_order5_target`, 75 `order5_source_to_order4_target`, and 872 `order5_source_to_order5_target`.
+
 ## Residual Source
 
 The local order5 ordered-pair universe starts from `3,915,693,200` possible pairs. Using deterministic strategy coverage and residual filtering, this project narrows that space to an unresolved estimate of `176,175,766`, roughly `1.8e8` residual pairs.
 
-The current public proofbench is a compact 100-problem sample from that residual space. The intended next step is to use LLM skill workflows to attack these problems, generate Lean 4 certificates, and let accepted certificates become recovered labels.
+The public proofbench now includes both a compact 100-problem sample and a larger 1000-problem sample from that residual-style space. The intended next step is to use LLM skill workflows to attack these problems, generate Lean 4 certificates, and let accepted certificates become recovered labels.
 
 ## Sampling
 
@@ -69,6 +85,17 @@ Final stratum distribution:
 
 The final sample contains 98 distinct `shape_bucket` values. No `shape_bucket` appears more than twice.
 
+`residual-1000-v1` was created from a 2026-05-29 residual sample and keeps the same unlabeled certificate-only protocol at larger scale. Its stratum distribution is:
+
+| stratum | count |
+| --- | ---: |
+| `order4_source_to_order4_target` | 2 |
+| `order4_source_to_order5_target` | 51 |
+| `order5_source_to_order4_target` | 75 |
+| `order5_source_to_order5_target` | 872 |
+
+This larger sample has 638 distinct `shape_bucket` values, so it is less tail-focused than the six remaining `residual-100-v1` rows but still exposes a substantial long tail after the currently accepted 736 v1 rows.
+
 ## Experiment Protocol
 
 Treat this repository as a fixed challenge set:
@@ -78,13 +105,13 @@ Treat this repository as a fixed challenge set:
 3. Count only judge-accepted certificates as solved.
 4. Record the model, prompt, skill version, raw response, judge verdict, and error summary.
 
-Remote judge backend URLs are intentionally not committed. Pass your own official-compatible simple-api backend with `--base-urls` or the `PROOFBENCH_REMOTE_SIMPLE_API_BASE_URLS` environment variable when using the helper verifier.
+Remote verification uses the judge-v2 control service through asynchronous jobs: `POST /jobs` followed by `GET /jobs/{job_id}/wait`. The helper defaults to the current judge-v2 control endpoint and can be overridden with `--base-urls`, `PROOFBENCH_REMOTE_JUDGE_V2_BASE_URLS`, or `STAGE2_REMOTE_JUDGE_BASE_URLS`.
 
 Recommended report fields:
 
 - `attempted`: number of attempted rows.
 - `accepted`: number of judge-accepted rows.
-- `accepted_rate`: `accepted / 100`.
+- `accepted_rate`: `accepted / sample_count`, for example `/ 100` for `residual-100-v1` or `/ 1000` for `residual-1000-v1`.
 - `true_accepted` / `false_accepted`: accepted counts by certificate verdict, if available.
 - `reproducibility_notes`: model, date, prompt, solver code, skill workflow, and toolchain versions.
 
@@ -94,9 +121,26 @@ This benchmark is not an unbiased estimate of the full 176M residual universe. I
 
 Because the rows do not contain labels, a claimed answer should be considered experimental until it is backed by an accepted Lean 4 certificate.
 
+## Tooling
+
+The lightweight package exposes repeatable helpers:
+
+```bash
+uv run proofbench-build-judge-input --problems data/residual-100-v1/problems.jsonl --candidates candidates.jsonl --output judge_input.jsonl
+uv run proofbench-remote-judge --input judge_input.jsonl --output judge_results.jsonl --summary summary.json --base-urls "$PROOFBENCH_REMOTE_JUDGE_V2_BASE_URLS"
+uv run proofbench-summarize-results judge_results.jsonl --summary summary.json
+uv run proofbench-log-attempt --ledger attempts.jsonl --from-results judge_results.jsonl --route my-route
+uv run proofbench-route-problem --ids 0041 --format json
+uv run proofbench-audit-attempts --ids 0041 --format text
+uv run --group dev pytest
+```
+
+Install optional solver dependencies with `uv sync --extra solver` when running the Z3/PySAT helper scripts under the Codex skill.
+
 ## Quick Checks
 
 ```bash
-wc -l data/residual-100-v1/problems.jsonl
+wc -l data/residual-100-v1/problems.jsonl data/residual-1000-v1/problems.jsonl
 jq '.selected_summary' data/residual-100-v1/manifest.json
+jq '.selected_summary' data/residual-1000-v1/manifest.json
 ```
