@@ -1,0 +1,213 @@
+{
+  "benchmark_id": "residual-1000-v1",
+  "created_date": "2026-05-29",
+  "field_schema": {
+    "answer": "null; hidden/unknown for this challenge set",
+    "eq1_id / eq2_id": "equation IDs from the local eq_size5.txt",
+    "equation1": "source equation, using * as the binary operation",
+    "equation2": "target equation, using * as the binary operation",
+    "expected_verdict": "null; a participant must produce a true or false Lean-verifiable certificate",
+    "pair_index": "deterministic ordered-pair index from the local Stage 2 order5 pair space",
+    "shape_bucket": "coarse source_shape -> target_shape bucket used only for sampling diagnostics",
+    "source_sample_id": "original sample_id from the math-distill-equational-stage2 source workspace",
+    "stratum": "order4/order5 source-target size stratum"
+  },
+  "file_hashes": {
+    "problems_jsonl_sha256": "e9d02b8f17ecaae4c26c6d44c36673b54e13d9c72321e59b7940a440d8aba792",
+    "shape_buckets_json_sha256": "531c8f504184a29bdcce2eb6694045f0047bb2f7158c349fbf217704d4007cc3"
+  },
+  "files": {
+    "manifest_json": "data/residual-1000-v1/manifest.json",
+    "problems_jsonl": "data/residual-1000-v1/problems.jsonl",
+    "shape_buckets_json": "data/residual-1000-v1/shape_buckets.json"
+  },
+  "notes": [
+    "This is an unofficial public challenge set, not an official leaderboard split.",
+    "Rows are sampled from the current columnar graph exact unknown layer, not from the older residual-100-v1 source pool.",
+    "No official test_locked rows, judge backend URLs, model attempts, or judge outcomes are included."
+  ],
+  "public_scope": {
+    "answer_labels_available": false,
+    "contains_judge_results": false,
+    "contains_model_outputs": false,
+    "contains_private_judge_backend": false,
+    "contains_test_locked": false
+  },
+  "sample_count": 1000,
+  "schema_version": 1,
+  "selected_summary": {
+    "stratum_counts": {
+      "order4_source_to_order4_target": 2,
+      "order4_source_to_order5_target": 51,
+      "order5_source_to_order4_target": 75,
+      "order5_source_to_order5_target": 872
+    },
+    "top_shape_buckets": [
+      {
+        "count": 11,
+        "shape_bucket": "roots=var>mul|d=0>5|vc=4|lm=1|rm=0|vs=0 -> roots=var>mul|d=0>4|vc=3|lm=1|rm=0|vs=0"
+      },
+      {
+        "count": 9,
+        "shape_bucket": "roots=mul>mul|d=1>4|vc=4|lm=0|rm=0|vs=0 -> roots=mul>mul|d=2>3|vc=4|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 8,
+        "shape_bucket": "roots=var>mul|d=0>4|vc=4|lm=0|rm=1|vs=0 -> roots=var>mul|d=0>4|vc=3|lm=0|rm=1|vs=0"
+      },
+      {
+        "count": 7,
+        "shape_bucket": "roots=mul>mul|d=1>4|vc=4|lm=0|rm=0|vs=0 -> roots=mul>mul|d=2>3|vc=5|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 7,
+        "shape_bucket": "roots=mul>mul|d=1>4|vc=4|lm=0|rm=0|vs=0 -> roots=mul>mul|d=1>3|vc=4|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 7,
+        "shape_bucket": "roots=var>mul|d=0>5|vc=3|lm=0|rm=0|vs=0 -> roots=var>mul|d=0>4|vc=3|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 6,
+        "shape_bucket": "roots=var>mul|d=0>5|vc=4|lm=0|rm=1|vs=0 -> roots=var>mul|d=0>4|vc=3|lm=0|rm=1|vs=0"
+      },
+      {
+        "count": 6,
+        "shape_bucket": "roots=var>mul|d=0>4|vc=4|lm=0|rm=1|vs=0 -> roots=var>mul|d=0>4|vc=4|lm=0|rm=1|vs=0"
+      },
+      {
+        "count": 6,
+        "shape_bucket": "roots=mul>mul|d=1>3|vc=4|lm=0|rm=0|vs=0 -> roots=mul>mul|d=2>3|vc=4|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 6,
+        "shape_bucket": "roots=var>mul|d=0>4|vc=3|lm=0|rm=0|vs=0 -> roots=mul>mul|d=1>4|vc=4|lm=0|rm=0|vs=0"
+      }
+    ],
+    "top_source_shapes": [
+      {
+        "count": 102,
+        "source_shape": "roots=mul>mul|d=1>4|vc=4|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 78,
+        "source_shape": "roots=mul>mul|d=1>3|vc=4|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 77,
+        "source_shape": "roots=var>mul|d=0>4|vc=3|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 69,
+        "source_shape": "roots=var>mul|d=0>5|vc=3|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 57,
+        "source_shape": "roots=mul>mul|d=1>3|vc=3|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 56,
+        "source_shape": "roots=var>mul|d=0>4|vc=4|lm=0|rm=1|vs=0"
+      },
+      {
+        "count": 56,
+        "source_shape": "roots=mul>mul|d=1>4|vc=3|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 55,
+        "source_shape": "roots=var>mul|d=0>5|vc=4|lm=1|rm=0|vs=0"
+      },
+      {
+        "count": 43,
+        "source_shape": "roots=var>mul|d=0>5|vc=4|lm=0|rm=1|vs=0"
+      },
+      {
+        "count": 36,
+        "source_shape": "roots=var>mul|d=0>4|vc=4|lm=1|rm=0|vs=0"
+      }
+    ],
+    "top_target_shapes": [
+      {
+        "count": 35,
+        "target_shape": "roots=mul>mul|d=2>3|vc=4|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 29,
+        "target_shape": "roots=mul>mul|d=1>4|vc=4|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 28,
+        "target_shape": "roots=var>mul|d=0>4|vc=3|lm=0|rm=1|vs=0"
+      },
+      {
+        "count": 24,
+        "target_shape": "roots=var>mul|d=0>4|vc=3|lm=1|rm=0|vs=0"
+      },
+      {
+        "count": 24,
+        "target_shape": "roots=mul>mul|d=1>4|vc=4|lm=1|rm=0|vs=0"
+      },
+      {
+        "count": 24,
+        "target_shape": "roots=mul>mul|d=2>3|vc=3|lm=0|rm=0|vs=0"
+      },
+      {
+        "count": 24,
+        "target_shape": "roots=var>mul|d=0>4|vc=4|lm=1|rm=0|vs=0"
+      },
+      {
+        "count": 22,
+        "target_shape": "roots=mul>mul|d=2>3|vc=4|lm=1|rm=0|vs=0"
+      },
+      {
+        "count": 20,
+        "target_shape": "roots=var>mul|d=0>4|vc=4|lm=0|rm=1|vs=0"
+      },
+      {
+        "count": 19,
+        "target_shape": "roots=mul>mul|d=2>3|vc=3|lm=1|rm=0|vs=0"
+      }
+    ],
+    "unique_pair_count": 1000,
+    "unique_shape_bucket_count": 638,
+    "unique_source_shape_count": 59,
+    "unique_target_shape_count": 139
+  },
+  "selection_method": "pair-uniform rejection sampling from the current columnar exact-unknown true/false layers",
+  "selection_seed": 20260529,
+  "source": {
+    "equation_file": "external/equational-theories-lean-stage2/examples/problems/eq_size5.txt",
+    "equations_sha256": "b41af2d6d5193b0be91c5ea330b8bef7f03dc55277a58905f8d86b6ba0ac810c",
+    "source_buckets_json": "data/processed/order5_strategy_registry/current_residual_columnar_exact_unknown_1000_seed20260529_buckets.json",
+    "source_buckets_sha256": "531c8f504184a29bdcce2eb6694045f0047bb2f7158c349fbf217704d4007cc3",
+    "source_repository": "math-distill-equational-stage2 local workspace",
+    "source_sample_jsonl": "data/processed/order5_strategy_registry/current_residual_columnar_exact_unknown_1000_seed20260529_sample.jsonl",
+    "source_sample_sha256": "c7d995f56a8633bfb9d0342e28ebe2629cc9fdedef25bb4f739bbef083b82f09",
+    "source_summary_json": "data/processed/order5_strategy_registry/current_residual_columnar_exact_unknown_1000_seed20260529_summary.json",
+    "source_summary_sha256": "950647e6ae9a97ac4dc17a159d3271c9bcd6fb1a852a19b8013c6a834a5bb68d",
+    "store_dir": "data/processed/order5_columnar_graph_store"
+  },
+  "source_pool_summary": {
+    "conflict_count": 0,
+    "exact_false_count": 2384904817,
+    "exact_true_count": 1394597946,
+    "exact_unknown_count": 136190437,
+    "sampling_algorithm": [
+      "Use random.Random(seed).randrange(pair_count) over directed non-self pair indexes.",
+      "Reject duplicate draws.",
+      "Reject pairs set in the exact true or exact false bitset layers.",
+      "Materialize the first sample_size unique exact-unknown pairs."
+    ],
+    "sampling_counts": {
+      "covered_by_exact_false": 17401,
+      "covered_by_exact_true": 9983,
+      "draw_acceptance_rate": 0.035231116121758735,
+      "random_candidate_draws": 28384,
+      "selected_exact_unknown": 1000,
+      "unique_random_pair_draws": 28384
+    },
+    "sampling_scope": "columnar_exact_unknown_true_false_layers",
+    "total_pairs": 3915693200
+  },
+  "title": "Math Distill Stage 2 Residual-1000 v1"
+}
